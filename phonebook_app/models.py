@@ -20,12 +20,13 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String, nullable=False)
     token = db.Column(db.String, default='', unique=True)
     join_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    phone_number = db.Column(db.Number, nullable=True)
+    phone_number = db.Column(db.Integer, nullable=True)
 
-    def __init__(self, username, email, password):
+    def __init__(self, username, email, phone_number, password):
         self.id =  self.set_id()
         self.username = username
         self.email = email
+        self.phone_number = phone_number
         self.password = self.set_password(password)
         self.token = self.set_token(32)
 

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for
 from ..forms import LoginForm, RegisterForm
 from ..models import User, db
 from werkzeug.security import check_password_hash
@@ -14,15 +14,14 @@ def register():
             username = form.username.data
             email = form.email.data
             password = form.password.data
+            phone_number = form.phone_number.data
 
-            user = User(username, email, password=password)
+            user = User(username, email, phone_number, password=password)
             db.session.add(user)
             db.session.commit()
 
-            flash(f'{user.__repr__}', 'user_created')
             return redirect(url_for('auth.login'))
     except:
-        flash('Something did not go right', 'form-failed')
         raise Exception('Something did not go right')
 
     return render_template('register.html', form=form)
@@ -38,15 +37,12 @@ def login():
             user_current = User.query.filter(User.email == email).first()
             if user_current and check_password_hash(user_current.password, password):
                 login_user(user_current)
-                flash(f'Hello {user_current.username}, you are logged in!', 'auth-success')
                 print(f'Redirecting to your Profile!')
                 return redirect(url_for('site.profile'))
             else:
-                flash(f'Your email/password was incorrect', 'auth-failed')
                 print(f'Redirecting to Login!')
                 return redirect(url_for('auth.login'))
     except:
-        flash('Something went wrong', 'form-failed')
         raise Exception('Something went wrong')
 
     return render_template('login.html', form=form)
@@ -55,6 +51,5 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash(f'You are logged out', 'logged-out')
     print('Successful logout')
     return redirect(url_for('site.home'))
