@@ -1,22 +1,26 @@
 <form method="POST">
     {{ form.hidden_tag() }}
     <div>
-        <fieldset id="username-field">
+        <fieldset id="username-field" style="border: none;">
             {{ form.username.label(class='text-white text-sm') }}
             {{ form.username(class='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500', placeholder='Create username: ') }}
         </fieldset>
-        <fieldset id="email-field">
+        <fieldset id="email-field" style="border: none;">
             {{ form.email.label(class='text-white text-sm') }}
             {{ form.email(class='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500', placeholder='Your email: ') }}
         </fieldset>
-        <fieldset id="password-field" class="flex mt-2">
+        <fieldset id="phone_number-field" style="border: none;">
+            {{ form.phone_number.label(class='text-white text-sm') }}
+            {{ form.phone_number(class='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500', placeholder='Your phone number: ') }}
+        </fieldset>
+        <fieldset id="password-field" class="flex mt-2" style="border: none;">
             <div class="flex flex-col">
                 {{ form.password.label(class='text-white text-sm') }}
-                {{ form.password(class='block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500', placeholder='Create password: ') }}
+                {{ form.password(class='block w-fit px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500', placeholder='Create password: ') }}
             </div>
             <div class="flex flex-col">
                 {{ form.confirm.label(class='text-white text-sm') }}
-                {{ form.confirm(class='block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500', placeholder='Create password: ') }}
+                {{ form.confirm(class='block w-fit px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500', placeholder='Create password: ') }}
             </div>
         </fieldset>
     </div>
