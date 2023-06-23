@@ -16,21 +16,20 @@
             <h1>Add an address!</h1>
             {% include 'address_form.html' %}
         </div>
-        <div>
-            {% for address in addresses %}
+    </div>
+    <div class="flex justify-center text-white text-xl mt-24">
+        {% for address in addresses %}
+            <div class="mr-10">
                 <div>
-                    Street: {{ address.street }}
+                    Address:
                 </div>
                 <div>
-                    City: {{ address.city }}
+                    {{ address.street }}
                 </div>
                 <div>
-                    State: {{ address.state }}
+                    {{ address.city }}, {{ address.state }} {{ address.zipcode }}
                 </div>
-                <div>
-                    Zip Code: {{ address.zipcode }}
-                </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock content %}
