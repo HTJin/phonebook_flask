@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
-        Signed in as: {{ current_user.email }}
-    </div>
-    <div>
-        Phone number: {{ current_user.phone_number }}
-    </div>
-    <div>
-        User token: {{ current_user.token }}
+    <div class="text-white">
+        <div>
+            Signed in as: {{ current_user.email }}
+        </div>
+        <div>
+            Phone number: {{ current_user.phone_number }}
+        </div>
+        <div>
+            User token: {{ current_user.token }}
+        </div>
     </div>
 {% endblock content %}

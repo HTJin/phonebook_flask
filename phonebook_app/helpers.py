@@ -1,7 +1,7 @@
 from flask import request, jsonify, json
 from functools import wraps
 from .models import User
-import secrets, decimal, requests, os, inspect
+import secrets, decimal, inspect
 
 class JSONEncoder(json.JSONEncoder):
     def default(self, obj):
