@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="text-white">
+    <div class="text-white text-xl flex flex-col items-center mt-24">
         <div>
             Signed in as: {{ current_user.email }}
         </div>
@@ -10,6 +10,27 @@
         </div>
         <div>
             User token: {{ current_user.token }}
+        </div>
+
+        <div class="mt-24">
+            <h1>Add an address!</h1>
+            {% include 'address_form.html' %}
+        </div>
+        <div>
+            {% for address in addresses %}
+                <div>
+                    Street: {{ address.street }}
+                </div>
+                <div>
+                    City: {{ address.city }}
+                </div>
+                <div>
+                    State: {{ address.state }}
+                </div>
+                <div>
+                    Zip Code: {{ address.zipcode }}
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock content %}
