@@ -41,3 +41,31 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f'username: {self.username}, email: {self.email} was added to Users'
+
+class Address(db.Model):
+    id = db.Column(db.String, primary_key=True)
+    street = db.Column(db.String)
+    city = db.Column(db.String)
+    state = db.Column(db.String)
+    zipcode = db.Column(db.Integer)
+    user_token = db.Column(db.String, db.ForeignKey('user.token'))
+
+    def __init__(self, street, city, state, zipcode, user_token):
+        self.id = self.set_id()
+        self.street = street
+        self.city = city
+        self.state = state
+        self.zipcode = zipcode
+        self.user_token = user_token
+
+    def set_id(self):
+        return str(uuid.uuid4())
+
+    def __repr__(self):
+        return f'The address {self.street}, {self.city}, {self.state} {self.zipcode} was added'
+
+class AddressSchema(ma.Schema):
+    class Meta:
+        fields = ['id', 'street', 'city', 'state', 'zipcode']
+address_schema = AddressSchema()
+addresses_schema = AddressSchema(many=True)
